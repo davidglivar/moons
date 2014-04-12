@@ -1,0 +1,25 @@
+{
+  "name": "moons",
+  "version": "0.0.0",
+  "description": "Orbiting utilities",
+  "main": "moons.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidglivar/moons.git"
+  },
+  "keywords": [
+    "utilities"
+  ],
+  "author": "David Glivar <davidglivar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidglivar/moons/issues"
+  },
+  "homepage": "https://github.com/davidglivar/moons",
+  "devDependencies": {
+    "gulp": "^3.6.0"
+  }
+}
