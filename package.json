@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/davidglivar/moons",
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "gulp": "^3.6.0",
-    "mocha": "^1.18.2",
-    "phantomjs": "^1.9.7-3",
-    "venus": "^2.3.1"
+    "ghoul": "0.0.3",
+    "gulp": "^3.6.0"
+  },
+  "dependencies": {
+    "commander": "^2.2.0"
   }
 }

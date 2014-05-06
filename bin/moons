@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+  , fs = require('fs')
+  , path = require('path');
+
+function copy(src, targ, done) {
+  done = done || function () {};
+  var rs = fs.createReadStream(src)
+    , ws = fs.createWriteStream(targ);
+  rs.on('error', done);
+  ws.on('error', done);
+  ws.on('close', done);
+  rs.pipe(ws);
+}
+
+var actions = {
+
+  init: function (directory) {
+    directory = directory || process.cwd();
+    var moonpath = path.join(directory, 'moons');
+    fs.mkdir(moonpath, function (err) {
+      if (err) throw err;
+      var lib = path.join(__dirname, '../lib')
+        , moons = fs.readdirSync(lib)
+        , len = moons.length
+        , count = 0;
+      moons.forEach(function (moon) {
+        copy(path.join(lib, moon), path.join(moonpath, moon), function (err) {
+          if (err) throw err;
+          count += 1;
+          if (count === len) {
+            console.log('done.');
+          }
+        });
+      });
+    });
+  }
+};
+
+program
+  .command('init [directory]')
+  .action(actions.init);
+
+program.parse(process.argv);
