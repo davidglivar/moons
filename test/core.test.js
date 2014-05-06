@@ -1,6 +1,26 @@
 var core = require('../lib/core');
 
-define('core', function () {
+describe('core', function () {
   
-  it('test something');
+  it('exists', function () {
+    expect(core).to.be.ok();
+    expect(core).to.be.an('object');
+  });
+
+  describe('#prop()', function () {
+    
+    it('exists', function () {
+      expect(core).to.have.property('prop');
+      expect(core.prop).to.be.a('function');
+      expect(core.prop.length).to.be(1);
+    });
+
+    it('returns null for an invalid property', function () {
+      expect(core.prop('notrealatall')).to.be(null);
+    });
+
+    it('is ok with a valid property', function () {
+      expect(core.prop('transform')).to.be.ok();
+    });
+  });
 });
