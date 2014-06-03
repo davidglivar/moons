@@ -18,9 +18,5 @@ describe('core', function () {
     it('returns null for an invalid property', function () {
       expect(core.prop('notrealatall')).to.be(null);
     });
-
-    it('is ok with a valid property', function () {
-      expect(core.prop('transform')).to.be.ok();
-    });
   });
 });

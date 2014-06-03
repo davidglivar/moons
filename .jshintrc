@@ -1,0 +1,27 @@
+{
+  "boss": true,
+  "laxbreak": true,
+  "laxcomma": true,
+  "undef": true,
+  "unused": true,
+  "predef": [
+    "require",
+    "process",
+    "console",
+    "module",
+    "exports",
+    "__dirname",
+
+    "describe",
+    "it",
+    "expect",
+
+    "phantom",
+
+    "window",
+    "setTimeout",
+    "alert",
+    "document",
+    "DocumentTouch"
+  ]
+}
