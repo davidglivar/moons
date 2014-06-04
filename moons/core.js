@@ -24,12 +24,13 @@ var core = {
 
   /**
    * Vendor helper for cancelAnimationFrame
-   * @example
-   *  var requestID = core.rAF(function () {});
-   *  core.cAF(requestID);
    * @public
    * @method
    * @param {number} id - The id returned by core.rAF to cancel
+   * @example
+   *  var requestID = core.rAF(function () {});
+   *  core.cAF(requestID);
+   * *
    */
   cAF: (function () {
     if (window.cancelAnimationFrame) return window.cancelAnimationFrame;
@@ -50,12 +51,13 @@ var core = {
 
   /**
    * Retrieve the (prefixed) style property given a normal property
-   * @example
-   *  var transition = core.prop('transition');
    * @public
    * @method
    * @param {string} p - The property to retrieve
    * @returns {string}
+   * @example
+   *  var transition = core.prop('transition');
+   * *
    */
   prop: function (p) {
     if (p in _styles) return toDash(p);
@@ -70,10 +72,11 @@ var core = {
 
   /**
    * Vendor helper for requestAnimationFrame
-   * @example
-   *  var requestID = core.rAF(function () {});
    * @public
    * @method
+   * @example
+   *  var requestID = core.rAF(function () {});
+   * *
    */
   rAF: (function () {
     if (window.requestAnimationFrame) return window.requestAnimationFrame;

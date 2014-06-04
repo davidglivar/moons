@@ -7,7 +7,12 @@ var gulp = require('gulp')
 
   , _ghoulPath = path.join(__dirname, 'node_modules/.bin/ghoul');
 
-gulp.task('docs', function () {
+gulp.task('clean-docs', function (done) {
+  var rm = child_process.spawn('rm', ['-rf', 'docs']);
+  rm.on('close', done);
+});
+
+gulp.task('docs', ['clean-docs'], function () {
   return gulp.src(['./moons/**/*.js'])
     .pipe(jsdoc('./docs'));
 });
