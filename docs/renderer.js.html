@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: moons/core</title>
+    <title>JSDoc: Source: renderer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,94 +17,47 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: moons/core</h1>
+    <h1 class="page-title">Source: renderer.js</h1>
 
     
 
 
-
-<section>
-
-<header>
-    <h2>
-    moons/core
-    </h2>
     
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module {Function} moons/renderer **/
 
-<article>
-    <div class="container-overview">
-    
+/**
+ * Module dependencies
+ */
+var core = require('./core');
 
-    
-        
+function Renderer(opts) {
+  
+}
 
-        
-<dl class="details">
-    
+Renderer.instance = null;
 
-    
+Renderer.create = function (opts) {
+  Renderer.instance = new Renderer(ops);
+  return Renderer.instance;
+};
 
-    
+Renderer.destroy = function () {
+  // unbind 
+  return Renderer.instance = null;
+};
 
-    
+Renderer.start = function () {
 
-    
+};
 
-    
+Renderer.stop = function () {
 
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Namespaces</h3>
-
-        <dl>
-            <dt><a href="namespaces.html#module:moons/core~core"><a href="core-core.html">core</a></a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
