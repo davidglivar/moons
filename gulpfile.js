@@ -1,9 +1,21 @@
 var gulp = require('gulp')
   , child_process = require('child_process')
+  , jsdoc = require('gulp-jsdoc')
   , jshint = require('gulp-jshint')
   , path = require('path')
+  , server = require('http-server')
 
   , _ghoulPath = path.join(__dirname, 'node_modules/.bin/ghoul');
+
+gulp.task('docs', function () {
+  return gulp.src(['./moons/**/*.js'])
+    .pipe(jsdoc('./docs'));
+});
+
+gulp.task('docs-server', ['docs'], function () {
+  var s = server.createServer({ root: path.join(__dirname, 'docs') });
+  s.listen(3001);
+});
 
 gulp.task('lint', function () {
   return gulp.src(['./moons/**/*.js', './test/**/*.js'])
@@ -24,4 +36,4 @@ gulp.task('watch', function () {
   gulp.watch(['./moons/**/*.js', './test/**/*.js'], ['test']);
 });
 
-gulp.task('default', ['test', 'watch']);
+gulp.task('default', ['test', 'docs', 'watch']);
