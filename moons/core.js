@@ -74,7 +74,6 @@ var core = {
    */
   rAF: (function () {
     if (window.requestAnimationFrame) return window.requestAnimationFrame;
-    console.log('checking vendors');
     var rAF
       , i = 0
       , l = _vendors.length;

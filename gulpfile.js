@@ -6,7 +6,7 @@ var gulp = require('gulp')
   , _ghoulPath = path.join(__dirname, 'node_modules/.bin/ghoul');
 
 gulp.task('lint', function () {
-  return gulp.src(['./lib/**/*.js', './test/**/*.js'])
+  return gulp.src(['./moons/**/*.js', './test/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -21,7 +21,7 @@ gulp.task('test', ['lint'], function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./lib/**/*.js', './test/**/*.js'], ['test']);
+  gulp.watch(['./moons/**/*.js', './test/**/*.js'], ['test']);
 });
 
 gulp.task('default', ['test', 'watch']);
