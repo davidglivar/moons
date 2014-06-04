@@ -74,6 +74,12 @@ function Debouncer(spec) {
   this._requestTick = this._requestTick.bind(this);
 }
 
+/**
+ * Internal method for main debouncing logic
+ * @method
+ * @private
+ * @returns {boolean}
+ */
 Debouncer.prototype._requestTick = function () {
   this._last = this.elementWithValue[this.value];
   if (!this._isTicking) {
@@ -82,11 +88,24 @@ Debouncer.prototype._requestTick = function () {
   return this._isTicking = true;
 };
 
+/**
+ * Internal update method run on rAF, runs the stack and flips the ticking flag
+ * @method
+ * @private
+ */
 Debouncer.prototype._update = function () {
   this._isTicking = false;
   this.runStack(this._last);
 };
 
+/**
+ * Attaches a function to the bound event by placing it in a call stack
+ * @method
+ * @public
+ * @param {Function} func - The function to queue in the call stack
+ * @returns {Debouncer}
+ * @throws {TypeError}
+ */
 Debouncer.prototype.attach = function (func) {
   if (typeof func !== 'function') {
     throw new TypeError('Expected a function, got ' + typeof func);
@@ -96,6 +115,14 @@ Debouncer.prototype.attach = function (func) {
   return this;
 };
 
+/**
+ * Detaches a function from the bound event by splicing it from the call stack
+ * @method
+ * @public
+ * @param {Function} func - The function to remove from the call stack
+ * @returns {Debouncer}
+ * @throws {TypeError}
+ */
 Debouncer.prototype.detach = function (func) {
   if (typeof func !== 'function') {
     throw new TypeError('Expected a function, got ' + typeof func);
@@ -106,6 +133,12 @@ Debouncer.prototype.detach = function (func) {
   return this;
 };
 
+/**
+ * Safely removes each function from the call stack
+ * @method
+ * @public
+ * @returns {Debouncer}
+ */
 Debouncer.prototype.detachAll = function () {
   var i = 0
     , l = this._calls.length;
@@ -115,6 +148,14 @@ Debouncer.prototype.detachAll = function () {
   return this;
 };
 
+/**
+ * Checks for the given function in the call stack
+ * @method
+ * @public
+ * @param {Function} func - The function for which to check
+ * @returns {boolean}
+ * @throws {TypeError}
+ */
 Debouncer.prototype.exists = function (func) {
   if (typeof func !== 'function') {
     throw new TypeError('Expected a function, got ' + typeof func);
@@ -122,10 +163,23 @@ Debouncer.prototype.exists = function (func) {
   return this._calls.indexOf(func) >= 0;
 };
 
+/**
+ * Bind to the event defined in the Debouncer constructor
+ * @method
+ * @public
+ * @returns {Debouncer}
+ */
 Debouncer.prototype.listen = function () {
   this.element.addEventListener(this.event, this._requestTick, false);
+  return this;
 };
 
+/**
+ * Runs the full call stack with a given value
+ * @method
+ * @public
+ * @param {*} current - The value to pass to each function in the stack
+ */
 Debouncer.prototype.runStack = function (current) {
   var i = 0
     , l = this._calls.length;
@@ -134,8 +188,15 @@ Debouncer.prototype.runStack = function (current) {
   }
 };
 
+/**
+ * Removes the event binding, but does not detach any functions from the stack
+ * @method
+ * @public
+ * @returns {Debouncer}
+ */
 Debouncer.prototype.stop = function () {
   this.element.removeEventListener(this.event, this._requestTick, false);
+  return this;
 };
 
 module.exports = Debouncer;
