@@ -21,7 +21,7 @@ var actions = {
     var moonpath = path.join(directory, 'moons');
     fs.mkdir(moonpath, function (err) {
       if (err) throw err;
-      var lib = path.join(__dirname, '../lib')
+      var lib = path.join(__dirname, '../moons')
         , moons = fs.readdirSync(lib)
         , len = moons.length
         , count = 0;

@@ -8,14 +8,6 @@ var core = require('./core');
 /**
  * General use event debouncing constructor. Debouncing is done off of the
  * requestAnimationFrame method
- * @constructor
- * @param {Object} spec - Initialization object
- * @param {Element} spec.element - The element to which the listener is bound
- * @param {Element} [spec.elementWithValue=spec.element] - The element with
- *  the changing value. This is common when binding to 'scroll'.
- * @param {string} spec.event - The event to bind to
- * @param {string} spec.value - The property name on elementWithValue that
- *  provides the updating value
  * @example
  *  var scroller = new Debouncer({
  *    element: window,
@@ -25,7 +17,14 @@ var core = require('./core');
  *  });
  *  d.attach(myFunc);
  *  d.listen();
- * *
+ * @constructor
+ * @param {Object} spec - Initialization object
+ * @param {Element} spec.element - The element to which the listener is bound
+ * @param {Element} [spec.elementWithValue=spec.element] - The element with
+ *  the changing value. This is common when binding to 'scroll'.
+ * @param {string} spec.event - The event to bind to
+ * @param {string} spec.value - The property name on elementWithValue that
+ *  provides the updating value
  */
 function Debouncer(spec) {
 

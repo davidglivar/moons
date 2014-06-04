@@ -13,7 +13,7 @@ gulp.task('clean-docs', function (done) {
 });
 
 gulp.task('docs', ['clean-docs'], function () {
-  return gulp.src(['./moons/**/*.js'])
+  return gulp.src('./moons/**/*.js')
     .pipe(jsdoc('./docs'));
 });
 
@@ -26,6 +26,18 @@ gulp.task('lint', function () {
   return gulp.src(['./moons/**/*.js', './test/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
+});
+
+gulp.task('sandbox', function () {
+  var build = child_process.spawn('./bin/moons', ['init', 'sandbox']);
+  build.on('close', function (code) {
+    if (code === 0) {
+      var s = server.createServer({ root: path.join(__dirname, 'sandbox') })
+      s.listen(3000);
+    } else {
+      console.log('build exited with code: ' + code);
+    }
+  });
 });
 
 gulp.task('test', ['lint'], function () {
