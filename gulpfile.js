@@ -12,8 +12,19 @@ gulp.task('clean-docs', function (done) {
 });
 
 gulp.task('docs', ['clean-docs'], function () {
-  return gulp.src('./moons/**/*.js')
-    .pipe(jsdoc('./docs'));
+  return gulp.src(['./moons/**/*.js', 'README.md'])
+    .pipe(
+      jsdoc(
+        './docs', 
+        { 
+          //path: path.join(__dirname, 'support/mamuso-bluelabel-jsdoc') 
+        },
+        null, 
+        { 
+          showPrivate: true 
+        }
+      )
+    );
 });
 
 gulp.task('docs-server', ['docs'], function () {
