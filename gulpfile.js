@@ -1,11 +1,10 @@
 var gulp = require('gulp')
   , child_process = require('child_process')
+  , Ghoul = require('ghoul')
   , jsdoc = require('gulp-jsdoc')
   , jshint = require('gulp-jshint')
   , path = require('path')
-  , server = require('http-server')
-
-  , _ghoulPath = path.join(__dirname, 'node_modules/.bin/ghoul');
+  , server = require('http-server');
 
 gulp.task('clean-docs', function (done) {
   var rm = child_process.spawn('rm', ['-rf', 'docs']);
@@ -41,12 +40,13 @@ gulp.task('sandbox', function () {
 });
 
 gulp.task('test', ['lint'], function () {
-  var ghoul = child_process.spawn(_ghoulPath, [], { stdio: 'inherit' });
-  ghoul.on('close', function (code) {
-    if (code !== 0) {
-      console.log('ghoul exited with code:', code);
-    }
+  var ghoul = new Ghoul({
+    reporter: 'spec',
+    libs: [
+      //path.join(__dirname, 'node_modules/sinon/pkg/sinon.js')
+    ]
   });
+  ghoul.run();
 });
 
 gulp.task('watch', function () {

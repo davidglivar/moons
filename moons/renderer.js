@@ -11,7 +11,7 @@ var renderer = {
 
   _rid: null,
 
-  _stopped: false,
+  _stopped: true,
 
   add: function (func) {
     if (typeof func !== 'function') {
@@ -60,7 +60,7 @@ var renderer = {
     for (i; i < l; i++) {
       this._calls[i]();
     }
-    core.rAF(this.update);
+    core.rAF(this.update.bind(this));
   }
 };
 

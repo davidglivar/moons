@@ -20,11 +20,12 @@
   },
   "homepage": "https://github.com/davidglivar/moons",
   "devDependencies": {
-    "ghoul": "0.0.3",
+    "ghoul": "0.0.4",
     "gulp": "^3.6.0",
     "gulp-jsdoc": "^0.1.4",
     "gulp-jshint": "^1.6.1",
-    "http-server": "^0.6.1"
+    "http-server": "^0.6.1",
+    "sinon": "^1.10.2"
   },
   "dependencies": {
     "commander": "^2.2.0"
