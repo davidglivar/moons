@@ -5,24 +5,26 @@
   "undef": true,
   "unused": true,
   "predef": [
-    "require",
-    "process",
-    "console",
-    "module",
-    "exports",
     "__dirname",
+    "console",
+    "exports",
+    "module",
+    "process",
+    "require",
 
+    "afterEach",
+    "beforeEach",
     "describe",
-    "it",
     "expect",
+    "it",
 
     "phantom",
 
-    "window",
-    "setTimeout",
-    "clearTimeout",
     "alert",
+    "clearTimeout",
     "document",
-    "DocumentTouch"
+    "DocumentTouch",
+    "setTimeout",
+    "window"
   ]
 }
