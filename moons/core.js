@@ -32,7 +32,11 @@ var core = {
    * @param {number} id - The id returned by core.rAF to cancel
    */
   cAF: (function () {
-    if (window.cancelAnimationFrame) return window.cancelAnimationFrame;
+    if (window.cancelAnimationFrame) {
+      return function () {
+        window.cancelAnimationFrame.apply(window, arguments);
+      };
+    }
     var cAF
       , i = 0
       , l = _vendors.length;
@@ -43,6 +47,10 @@ var core = {
     if (!cAF) {
       cAF = function (id) {
         clearTimeout(id);
+      };
+    } else {
+      cAF = function () {
+        return cAF.apply(window, arguments);
       };
     }
     return cAF;
@@ -76,7 +84,11 @@ var core = {
    * @method
    */
   rAF: (function () {
-    if (window.requestAnimationFrame) return window.requestAnimationFrame;
+    if (window.requestAnimationFrame) {
+      return function () {
+        window.requestAnimationFrame.apply(window, arguments);
+      };
+    }
     var rAF
       , i = 0
       , l = _vendors.length;
@@ -91,6 +103,10 @@ var core = {
           , id = setTimeout(function () { callback(currTime + timeToCall); }, timeToCall);
         lastTime = currTime + timeToCall;
         return id;
+      };
+    } else {
+      rAF = function () {
+        return rAF.apply(window, arguments);
       };
     }
     return rAF;

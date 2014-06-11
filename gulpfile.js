@@ -1,10 +1,13 @@
 var gulp = require('gulp')
+  , browserify = require('browserify')
   , child_process = require('child_process')
+  , fs = require('fs')
   , Ghoul = require('ghoul')
   , jsdoc = require('gulp-jsdoc')
   , jshint = require('gulp-jshint')
   , path = require('path')
-  , server = require('http-server');
+  , server = require('http-server')
+  , source = require('vinyl-source-stream');
 
 gulp.task('clean-docs', function (done) {
   var rm = child_process.spawn('rm', ['-rf', 'docs']);
@@ -16,10 +19,8 @@ gulp.task('docs', ['clean-docs'], function () {
     .pipe(
       jsdoc(
         './docs', 
-        { 
-          //path: path.join(__dirname, 'support/mamuso-bluelabel-jsdoc') 
-        },
-        null, 
+        {}, // template
+        {},
         { 
           showPrivate: true 
         }
@@ -42,8 +43,29 @@ gulp.task('sandbox', function () {
   var build = child_process.spawn('./bin/moons', ['init', 'sandbox']);
   build.on('close', function (code) {
     if (code === 0) {
-      var s = server.createServer({ root: path.join(__dirname, 'sandbox') })
-      s.listen(3000);
+      var sandpath = path.join(__dirname, 'sandbox')
+        , files = fs.readdirSync(sandpath)
+        , count = 0;
+      files = files.filter(function (file) {
+        if (path.extname(file) === '.js' &&
+            !file.match(/main/ig)) {
+          return file;
+        }
+      });
+      files.forEach(function (file) {
+        var base = path.basename(file, '.js');
+        browserify(path.join(sandpath, file))
+          .bundle()
+          .pipe(source(base + '.main.js'))
+          .pipe(gulp.dest(sandpath))
+          .on('close', function () {
+            count += 1;
+            if (count === files.length) {
+              var s = server.createServer({ root: path.join(__dirname, 'sandbox') }).listen(3000);
+              console.log('sandbox server is listening on port 3000');
+            }
+          });
+      });
     } else {
       console.log('build exited with code: ' + code);
     }

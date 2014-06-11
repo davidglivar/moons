@@ -1,4 +1,4 @@
-/** @module {Function} moons/renderer **/
+/** @module {Object} moons/renderer **/
 
 /**
  * Module dependencies

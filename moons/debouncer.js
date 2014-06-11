@@ -15,8 +15,8 @@ var core = require('./core');
  *    event: 'scroll',
  *    value: 'scrollTop'
  *  });
- *  d.attach(myFunc);
- *  d.listen();
+ *  scroller.attach(myFunc);
+ *  scroller.listen();
  * @constructor
  * @param {Object} spec - Initialization object
  * @param {Element} spec.element - The element to which the listener is bound
