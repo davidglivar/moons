@@ -22,7 +22,7 @@ gulp.task('docs', ['clean-docs'], function () {
         {}, // template
         {},
         { 
-          showPrivate: true 
+          showPrivate: true
         }
       )
     );

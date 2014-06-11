@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: core</title>
+    <title>JSDoc: Module: moons/template</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: core</h1>
+    <h1 class="page-title">Module: moons/template</h1>
 
     
 
@@ -27,9 +27,7 @@
 
 <header>
     <h2>
-        <span class="ancestors"><a href="core.html">moons/core</a>~</span>
-    
-    core
+    moons/template
     </h2>
     
 </header>
@@ -64,7 +62,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line23">line 23</a>
+        <a href="template.js.html">template.js</a>, <a href="template.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -98,7 +96,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="cAF"><span class="type-signature">&lt;static> </span>cAF<span class="signature">(id)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="template"><span class="type-signature">&lt;inner> </span>template<span class="signature">(t, map, fragment)</span><span class="type-signature"> &rarr; {string|Element}</span></h4>
 
     
 </dt>
@@ -106,7 +104,7 @@
 
     
     <div class="description">
-        Vendor helper for cancelAnimationFrame
+        Simple templating function with Handlebars '{{}}' syntax.
     </div>
     
 
@@ -140,132 +138,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The id returned by core.rAF to cancel</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line34">line 34</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>var requestID = core.rAF(function () {});
-core.cAF(requestID);</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="prop"><span class="type-signature">&lt;static> </span>prop<span class="signature">(p)</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Retrieve the (prefixed) style property given a normal property
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>p</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
@@ -281,7 +154,53 @@ core.cAF(requestID);</code></pre>
 
             
 
-            <td class="description last">The property to retrieve</td>
+            <td class="description last">The unparsed template</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>map</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of values to place into the template</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fragment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag to return a document Element</td>
         </tr>
 
     
@@ -312,7 +231,7 @@ core.cAF(requestID);</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line68">line 68</a>
+        <a href="template.js.html">template.js</a>, <a href="template.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -338,6 +257,10 @@ core.cAF(requestID);</code></pre>
     <h5>Returns:</h5>
     
             
+<div class="param-desc">
+    depending on fragment value
+</div>
+
 
 
 <dl>
@@ -347,6 +270,9 @@ core.cAF(requestID);</code></pre>
     <dd>
         
 <span class="param-type">string</span>
+|
+
+<span class="param-type">Element</span>
 
 
     </dd>
@@ -357,83 +283,10 @@ core.cAF(requestID);</code></pre>
     
         <h5>Example</h5>
         
-    <pre class="prettyprint"><code>var transition = core.prop('transition');</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="rAF"><span class="type-signature">&lt;static> </span>rAF<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Vendor helper for requestAnimationFrame
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line86">line 86</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>var requestID = core.rAF(function () {});</code></pre>
+    <pre class="prettyprint"><code>var temp = '{{name.first}} {{name.last}}, {{age}}';
+var map = { name: { first: 'David', last: 'Glivar' }, age: 29 };
+template(temp, map);
+=> 'David Glivar, 29'</code></pre>
 
     
 </dd>
