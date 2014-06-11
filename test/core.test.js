@@ -14,8 +14,6 @@ describe('core', function () {
       expect(core.cAF).to.be.a('function');
       expect(core.cAF.length).to.be(1);
     });
-
-    it('write some tests');
   });
 
   describe('#clone()', function () {
@@ -99,7 +97,5 @@ describe('core', function () {
       expect(core.rAF).to.be.a('function');
       expect(core.rAF.length).to.be(1);
     });
-
-    it('write some tests');
   });
 });
