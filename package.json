@@ -4,7 +4,7 @@
   "description": "Orbiting utilities",
   "main": "moons.js",
   "scripts": {
-    "test": "make test"
+    "test": "./node_modules/.bin/gulp test"
   },
   "repository": {
     "type": "git",
