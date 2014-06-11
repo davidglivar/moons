@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+  , child_process = require('child_process')
+  , fs = require('fs')
+  , path = require('path');
+
+function copy(src, targ, done) {
+  done = done || function () {};
+  var rs = fs.createReadStream(src)
+    , ws = fs.createWriteStream(targ);
+  rs.on('error', done);
+  ws.on('error', done);
+  ws.on('close', done);
+  rs.pipe(ws);
+}
+
+function init(moonpath) {
+  fs.mkdir(moonpath, function (err) {
+    if (err) throw err;
+    var lib = path.join(__dirname, '../moons')
+      , moons = fs.readdirSync(lib)
+      , len = moons.length
+      , count = 0;
+    moons.forEach(function (moon) {
+      copy(path.join(lib, moon), path.join(moonpath, moon), function (err) {
+        if (err) throw err;
+        count += 1;
+        if (count === len) {
+          console.log('done.');
+        }
+      });
+    });
+  });
+}
+
+var actions = {
+
+  init: function (directory) {
+    directory = directory || process.cwd();
+    var moonpath = path.join(directory, 'moons');
+    if (fs.existsSync(moonpath)) {
+      var rm = child_process.spawn('rm', ['-rf', moonpath]);
+      rm.on('close', function () {
+        init(moonpath);
+      });
+    } else {
+      init(moonpath);
+    }
+  }
+};
+
+program
+  .command('init [directory]')
+  .action(actions.init);
+
+program.parse(process.argv);

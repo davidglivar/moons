@@ -1,0 +1,35 @@
+{
+  "name": "moons",
+  "version": "0.0.1",
+  "description": "Orbiting utilities",
+  "main": "moons.js",
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidglivar/moons.git"
+  },
+  "keywords": [
+    "utilities"
+  ],
+  "author": "David Glivar <davidglivar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidglivar/moons/issues"
+  },
+  "homepage": "https://github.com/davidglivar/moons",
+  "devDependencies": {
+    "browserify": "^4.1.9",
+    "ghoul": "0.0.4",
+    "gulp": "^3.6.0",
+    "gulp-jsdoc": "^0.1.4",
+    "gulp-jshint": "^1.6.1",
+    "http-server": "^0.6.1",
+    "sinon": "^1.10.2",
+    "vinyl-source-stream": "^0.1.1"
+  },
+  "dependencies": {
+    "commander": "^2.2.0"
+  }
+}
