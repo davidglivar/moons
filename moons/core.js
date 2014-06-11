@@ -57,6 +57,59 @@ var core = {
   }()),
 
   /**
+   * Create a unique copy of an object
+   * @example
+   *  var o = { foo: true };
+   *  var result = core.clone(o);
+   *  o === result
+   *  => false
+   *  o.foo === result.foo
+   *  => true
+   * @public
+   * @method
+   * @param {Object} obj - The object to clone
+   * @returns {Object}
+   */
+  clone: function (obj) {
+    var result = {}
+      , key;
+    for (key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        result[key] = obj[key];
+      }
+    }
+    return result;
+  },
+
+  /**
+   * Shallow merging of source objects into an original
+   * @example
+   *  var original = { name: 'David', age: 12 };
+   *  extend(original, { age: 29, square: true });
+   *  => { name: 'David', age: 29, square: true }
+   * @public
+   * @method
+   * @param {Object} original - The original object to be extended
+   * @returns {Object}
+   */
+  extend: function (original /*, sources */) {
+    var result = this.clone(original)
+      , sources = Array.prototype.slice.call(arguments, 1)
+      , l = sources.length
+      , i = 0;
+    if (!l) return result;
+    for (i; i < l; i++) {
+      var k;
+      for (k in sources[i]) {
+        if (sources[i].hasOwnProperty(k)) {
+          result[k] = sources[i][k];
+        }
+      }
+    }
+    return result;
+  },
+
+  /**
    * Retrieve the (prefixed) style property given a normal property
    * @example
    *  var transition = core.prop('transition');
