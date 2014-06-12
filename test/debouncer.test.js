@@ -24,6 +24,8 @@ describe('Debouncer', function () {
     expect(Debouncer).to.be.a('function');
   });
 
+  it('throws a TypeError if anything other than an object is passed into the constructor');
+
   describe('_calls', function () {
 
     it('is an array', function () {
@@ -48,10 +50,13 @@ describe('Debouncer', function () {
 
   describe('element', function () {
     it('write some tests');
+    it('throws a TypeError if value is not an Element');
   });
 
   describe('elementWithValue', function () {
     it('write some tests');
+    it('throws a TypeError if value is not an Element');
+    it('defaults to `element` if not in initialization object');
   });
 
   describe('event', function () {
@@ -72,10 +77,12 @@ describe('Debouncer', function () {
 
   describe('#attach()', function () {
     it('write some tests');
+    it('throws a TypeError if you pass anything other than a function');
   });
 
   describe('#detach()', function () {
     it('write some tests');
+    it('throws a TypeError if you pass anything other than a function');
   });
 
   describe('#detachAll()', function () {
@@ -84,6 +91,7 @@ describe('Debouncer', function () {
 
   describe('#exists()', function () {
     it('write some tests');
+    it('throws a TypeError if you pass anything other than a function');
   });
 
   describe('#listen()', function () {
