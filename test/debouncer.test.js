@@ -28,7 +28,20 @@ describe('Debouncer', function () {
     expect(Debouncer).to.be.a('function');
   });
 
-  it('throws a TypeError if anything other than an object is passed into the constructor');
+  it('throws a TypeError if anything other than an object is passed into the constructor', function () {
+    var f1 = function () { new Debouncer(); };
+    var f2 = function () { new Debouncer('string'); };
+    var f3 = function () { new Debouncer([]); };
+    expect(f1).to.throwError(function (e) {
+      expect(e).to.be.a(TypeError);
+    });
+    expect(f2).to.throwError(function (e) {
+      expect(e).to.be.a(TypeError);
+    });
+    expect(f3).to.throwError(function (e) {
+      expect(e).to.be.a(TypeError);
+    });
+  });
 
   describe('_calls', function () {
 
@@ -69,28 +82,65 @@ describe('Debouncer', function () {
   });
 
   describe('elementWithValue', function () {
+
     it('throws a TypeError in construction if value is not an Element', function () {
-      //var func = function () {
-        //new Debouncer({
-          //element: window,
-          //elementWithValue: {},
-          //event: 'someEvent',
-          //value: 'someValue'
-        //});
-      //};
-      //expect(func).to.throwError(function (e) {
-        //expect(e).to.be.a(TypeError);
-      //});
+      var func = function () {
+        new Debouncer({
+          element: window,
+          elementWithValue: {},
+          event: 'someEvent',
+          value: 'someValue'
+        });
+      };
+      expect(func).to.throwError(function (e) {
+        expect(e).to.be.a(TypeError);
+      });
     });
-    it('defaults to `element` if not in initialization object');
+
+    it('defaults to `element` if not in initialization object', function () {
+      var func = function () {
+        return new Debouncer({
+          element: window,
+          event: 'someEvent',
+          value: 'someValue'
+        });
+      };
+      expect(func).to.not.throwError();
+      var d = func();
+      expect(d.elementWithValue).to.eql(d.element);
+    });
   });
 
   describe('event', function () {
-    it('write some tests');
+    
+    it('throws a TypeError in construction if value is not a string', function () {
+      var func = function () {
+        new Debouncer({
+          element: window,
+          event: false,
+          value: 'someValue'
+        });
+      };
+      expect(func).to.throwError(function (e) {
+        expect(e).to.be.a(TypeError);
+      });
+    });
   });
 
   describe('value', function () {
-    it('write some tests');
+
+    it('throws a TypeError in construction if value is not a string', function () {
+      var func = function () {
+        new Debouncer({
+          element: window,
+          event: 'someEvent',
+          value: false
+        });
+      };
+      expect(func).to.throwError(function (e) {
+        expect(e).to.be.a(TypeError);
+      });
+    });
   });
 
   describe('#_requestTick()', function () {

@@ -136,6 +136,9 @@ requestAnimationFrame method
             <td class="type">
             
                 
+<span class="param-type">Window</span>
+|
+
 <span class="param-type">Element</span>
 
 
@@ -171,6 +174,9 @@ requestAnimationFrame method
             <td class="type">
             
                 
+<span class="param-type">Window</span>
+|
+
 <span class="param-type">Element</span>
 
 
@@ -370,6 +376,10 @@ scroller.listen();</code></pre>
 </dt>
 <dd>
     
+    <div class="description">
+        The call stack containing attached functions
+    </div>
+    
 
     
         <h5>Type:</h5>
@@ -406,7 +416,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line48">line 48</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line68">line 68</a>
     </li></ul></dd>
     
 
@@ -431,6 +441,10 @@ scroller.listen();</code></pre>
     
 </dt>
 <dd>
+    
+    <div class="description">
+        Boolean flag bounced off of requestAnimationFrame
+    </div>
     
 
     
@@ -468,7 +482,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line54">line 54</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line75">line 75</a>
     </li></ul></dd>
     
 
@@ -534,7 +548,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line61">line 61</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line82">line 82</a>
     </li></ul></dd>
     
 
@@ -554,11 +568,15 @@ scroller.listen();</code></pre>
         
             
 <dt>
-    <h4 class="name" id="element"><span class="type-signature"></span>element<span class="type-signature"> :Element</span></h4>
+    <h4 class="name" id="element"><span class="type-signature"></span>element<span class="type-signature"> :Element|Window</span></h4>
 
     
 </dt>
 <dd>
+    
+    <div class="description">
+        The element to which the event is bound
+    </div>
     
 
     
@@ -567,6 +585,9 @@ scroller.listen();</code></pre>
             <li>
                 
 <span class="param-type">Element</span>
+|
+
+<span class="param-type">Window</span>
 
 
             </li>
@@ -596,7 +617,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line67">line 67</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -616,11 +637,15 @@ scroller.listen();</code></pre>
         
             
 <dt>
-    <h4 class="name" id="elementWithValue"><span class="type-signature"></span>elementWithValue<span class="type-signature"> :Element</span></h4>
+    <h4 class="name" id="elementWithValue"><span class="type-signature"></span>elementWithValue<span class="type-signature"> :Element|Window</span></h4>
 
     
 </dt>
 <dd>
+    
+    <div class="description">
+        The element with the property/value that should be passed to the call stack
+    </div>
     
 
     
@@ -629,6 +654,9 @@ scroller.listen();</code></pre>
             <li>
                 
 <span class="param-type">Element</span>
+|
+
+<span class="param-type">Window</span>
 
 
             </li>
@@ -658,7 +686,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line73">line 73</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -684,6 +712,10 @@ scroller.listen();</code></pre>
 </dt>
 <dd>
     
+    <div class="description">
+        The event to attach
+    </div>
+    
 
     
         <h5>Type:</h5>
@@ -720,7 +752,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line79">line 79</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -746,6 +778,10 @@ scroller.listen();</code></pre>
 </dt>
 <dd>
     
+    <div class="description">
+        The property key to be accessed on elementWithValue
+    </div>
+    
 
     
         <h5>Type:</h5>
@@ -782,7 +818,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line85">line 85</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -849,7 +885,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line96">line 96</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line121">line 121</a>
     </li></ul></dd>
     
 
@@ -938,7 +974,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line109">line 109</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -1057,7 +1093,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line122">line 122</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line147">line 147</a>
     </li></ul></dd>
     
 
@@ -1209,7 +1245,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line139">line 139</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line164">line 164</a>
     </li></ul></dd>
     
 
@@ -1313,7 +1349,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line155">line 155</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line180">line 180</a>
     </li></ul></dd>
     
 
@@ -1450,7 +1486,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line172">line 172</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line197">line 197</a>
     </li></ul></dd>
     
 
@@ -1554,7 +1590,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line185">line 185</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line210">line 210</a>
     </li></ul></dd>
     
 
@@ -1691,7 +1727,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line196">line 196</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line221">line 221</a>
     </li></ul></dd>
     
 
@@ -1762,7 +1798,7 @@ scroller.listen();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line210">line 210</a>
+        <a href="debouncer.js.html">debouncer.js</a>, <a href="debouncer.js.html#line235">line 235</a>
     </li></ul></dd>
     
 
@@ -1829,7 +1865,7 @@ scroller.listen();</code></pre>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Fri Jun 13 2014 10:38:07 GMT-0700 (PDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Fri Jun 13 2014 14:11:10 GMT-0700 (PDT)
 </footer>
 
 <script> prettyPrint(); </script>

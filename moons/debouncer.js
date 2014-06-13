@@ -42,14 +42,33 @@ function Debouncer(spec) {
     );
   }
 
+  if (typeof spec.elementWithValue === 'undefined') {
+    spec.elementWithValue = spec.element;
+  } else if ((!(spec.elementWithValue instanceof (Window || DOMWindowConstructor)) &&
+              !(spec.elementWithValue instanceof Element))) {
+    throw new TypeError(
+        'Expected an Element, got ' + typeof spec.elementWithValue 
+      + ' with constructor ' + spec.elementWithValue.constructor
+    );
+  }
+
+  if (typeof spec.event !== 'string') {
+    throw new TypeError('Expected a string, got ' + typeof spec.event);
+  }
+
+  if (typeof spec.value !== 'string') {
+    throw new TypeError('Expected a string, got ' + typeof spec.value);
+  }
+
   /**
-   * The call stack
+   * The call stack containing attached functions
    * @member {Array}
    * @private
    */
   this._calls = [];
 
   /**
+   * Boolean flag bounced off of requestAnimationFrame
    * @member {boolean}
    * @private
    */
@@ -63,24 +82,28 @@ function Debouncer(spec) {
   this._last = null;
 
   /**
-   * @member {Element}
+   * The element to which the event is bound
+   * @member {Element|Window}
    * @public
    */
   this.element = spec.element;
 
   /**
-   * @member {Element}
+   * The element with the property/value that should be passed to the call stack
+   * @member {Element|Window}
    * @public
    */
   this.elementWithValue = spec.elementWithValue || spec.element;
 
   /**
+   * The event to attach
    * @member {string}
    * @public
    */
   this.event = spec.event;
 
   /**
+   * The property key to be accessed on elementWithValue
    * @member {string}
    * @public
    */
