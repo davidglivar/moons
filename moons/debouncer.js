@@ -19,16 +19,31 @@ var core = require('./core');
  *  scroller.listen();
  * @constructor
  * @param {Object} spec - Initialization object
- * @param {Element} spec.element - The element to which the listener is bound
- * @param {Element} [spec.elementWithValue=spec.element] - The element with
+ * @param {Window|Element} spec.element - The element to which the listener is bound
+ * @param {Window|Element} [spec.elementWithValue=spec.element] - The element with
  *  the changing value. This is common when binding to 'scroll'.
  * @param {string} spec.event - The event to bind to
  * @param {string} spec.value - The property name on elementWithValue that
  *  provides the updating value
  */
 function Debouncer(spec) {
+  
+  if (!spec || typeof spec === 'undefined') {
+    throw new TypeError('Expected an initialization object, got ' + typeof spec);
+  }
+
+  if (!spec.element || 
+      // silly, but phantomjs uses DOMWindowConstructor instead of Window
+      (!(spec.element instanceof (Window || DOMWindowConstructor)) &&
+      !(spec.element instanceof Element))) {
+    throw new TypeError(
+        'Expected an Element, got ' + typeof spec.element 
+      + ' with constructor ' + spec.element.constructor
+    );
+  }
 
   /**
+   * The call stack
    * @member {Array}
    * @private
    */

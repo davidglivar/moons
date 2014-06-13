@@ -2,6 +2,10 @@ var Debouncer = require('../moons/debouncer');
 
 var _d = null;
 
+if (typeof Window === 'undefined') {
+  Window = window.constructor;
+}
+
 function setup() {
   _d = new Debouncer({
     element: window,
@@ -49,13 +53,35 @@ describe('Debouncer', function () {
   });
 
   describe('element', function () {
-    it('write some tests');
-    it('throws a TypeError if value is not an Element');
+
+    it('throws a TypeError in construction if value is not an Element', function () {
+      var func = function () {
+        new Debouncer({
+          element: null,
+          event: 'someEvent',
+          value: 'someValue'
+        });
+      };
+      expect(func).to.throwError(function (e) {
+        expect(e).to.be.a(TypeError);
+      });
+    });
   });
 
   describe('elementWithValue', function () {
-    it('write some tests');
-    it('throws a TypeError if value is not an Element');
+    xit('throws a TypeError in construction if value is not an Element', function () {
+      var func = function () {
+        new Debouncer({
+          element: window,
+          elementWithValue: {},
+          event: 'someEvent',
+          value: 'someValue'
+        });
+      };
+      expect(func).to.throwError(function (e) {
+        expect(e).to.be.a(TypeError);
+      });
+    });
     it('defaults to `element` if not in initialization object');
   });
 
