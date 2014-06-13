@@ -3,6 +3,8 @@ Moons
 
 **Orbiting utilities.**
 
+[![wercker status](https://app.wercker.com/status/5ce13e450e6486f3cf55069f48a02b1d/m "wercker status")](https://app.wercker.com/project/bykey/5ce13e450e6486f3cf55069f48a02b1d)
+
 Moons is a frontend javascript utility library that is written for projects 
 utilizing [browserify](http://browserify.org/). Getting started with moons is
 easy. You can install globally through npm if you want quick access to the `init`

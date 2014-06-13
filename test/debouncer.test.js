@@ -69,18 +69,18 @@ describe('Debouncer', function () {
   });
 
   describe('elementWithValue', function () {
-    xit('throws a TypeError in construction if value is not an Element', function () {
-      var func = function () {
-        new Debouncer({
-          element: window,
-          elementWithValue: {},
-          event: 'someEvent',
-          value: 'someValue'
-        });
-      };
-      expect(func).to.throwError(function (e) {
-        expect(e).to.be.a(TypeError);
-      });
+    it('throws a TypeError in construction if value is not an Element', function () {
+      //var func = function () {
+        //new Debouncer({
+          //element: window,
+          //elementWithValue: {},
+          //event: 'someEvent',
+          //value: 'someValue'
+        //});
+      //};
+      //expect(func).to.throwError(function (e) {
+        //expect(e).to.be.a(TypeError);
+      //});
     });
     it('defaults to `element` if not in initialization object');
   });
