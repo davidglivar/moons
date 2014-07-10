@@ -34,7 +34,7 @@ gulp.task('docs-server', ['docs'], function () {
 });
 
 gulp.task('lint', function () {
-  return gulp.src(['./moons/**/*.js', './test/**/*.js'])
+  return gulp.src('./moons/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });

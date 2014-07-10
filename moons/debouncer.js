@@ -110,6 +110,7 @@ function Debouncer(spec) {
   this.value = spec.value;
 
   this._requestTick = this._requestTick.bind(this);
+  this._update = this._update.bind(this);
 }
 
 /**
@@ -121,7 +122,7 @@ function Debouncer(spec) {
 Debouncer.prototype._requestTick = function () {
   this._last = this.elementWithValue[this.value];
   if (!this._isTicking) {
-    core.rAF(this._update.bind(this));
+    core.rAF(this._update);
   }
   return this._isTicking = true;
 };

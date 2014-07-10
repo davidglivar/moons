@@ -1,4 +1,5 @@
-var Debouncer = require('../moons/debouncer');
+var Debouncer = require('../moons/debouncer')
+  , sinon = require('sinon');
 
 var _d = null;
 
@@ -144,11 +145,53 @@ describe('Debouncer', function () {
   });
 
   describe('#_requestTick()', function () {
-    it('write some tests');
+
+    it('calls #_update() if _isTicking is false', function (done) {
+      var spy = sinon.spy(_d, '_update')
+        , result;
+      expect(_d._isTicking).to.be(false);
+      result = _d._requestTick();
+      setTimeout(function () {
+        expect(spy.called).to.be(true);
+        expect(result).to.be(true);
+        expect(_d._isTicking).to.be(false);
+        done();
+      }, 100);
+    });
+
+    it('does not call #_update() if _isTicking is true', function (done) {
+      var spy = sinon.spy(_d, '_update')
+        , result;
+      _d._isTicking = true;
+      result = _d._requestTick();
+      setTimeout(function () {
+        expect(spy.called).to.be(false);
+        expect(result).to.be(true);
+        expect(_d._isTicking).to.be(true);
+        done();
+      }, 100);
+    });
   });
 
   describe('#_update()', function () {
-    it('write some tests');
+
+    it('sets _isTicking to false', function () {
+      _d._isTicking = true;    
+      _d._update();
+      expect(_d._isTicking).to.be(false);
+    });
+
+    it('runs the call stack', function (done) {
+      var spy = sinon.spy(_d, 'runStack')
+        , func = sinon.spy();
+      _d.attach(func);
+      _d._update();
+      setTimeout(function () {
+        expect(spy.called).to.be(true);
+        expect(func.called).to.be(true);
+        done();
+      }, 100);
+    });
   });
 
   describe('#attach()', function () {
