@@ -1,4 +1,4 @@
-var template = require('../moons/template');
+var template = require('../lib/template');
 
 describe('template', function () {
 

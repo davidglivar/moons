@@ -1,4 +1,4 @@
-var core = require('../moons/core');
+var core = require('../lib/core');
 
 describe('core', function () {
   

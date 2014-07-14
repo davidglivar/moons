@@ -1,4 +1,4 @@
-var Debouncer = require('../moons/debouncer')
+var Debouncer = require('../lib/debouncer')
   , sinon = require('sinon');
 
 var _d = null;

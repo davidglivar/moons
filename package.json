@@ -2,7 +2,10 @@
   "name": "moons",
   "version": "0.0.1",
   "description": "Orbiting utilities",
-  "main": "moons.js",
+  "directories": {
+    "lib": "./lib",
+    "docs": "./docs"
+  },
   "scripts": {
     "test": "./node_modules/.bin/gulp test"
   },
@@ -26,10 +29,11 @@
     "gulp-jsdoc": "^0.1.4",
     "gulp-jshint": "^1.6.1",
     "http-server": "^0.6.1",
-    "sinon": "^1.10.2",
+    "sinon": "^1.10.3",
     "vinyl-source-stream": "^0.1.1"
   },
   "dependencies": {
-    "commander": "^2.2.0"
+    "commander": "^2.2.0",
+    "es6-promise": "^1.0.0"
   }
 }
