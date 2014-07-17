@@ -1,4 +1,4 @@
-var renderer = require('../moons/renderer')
+var renderer = require('../lib/renderer')
   , sinon = require('sinon');
 
 describe('renderer', function () {

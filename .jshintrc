@@ -24,8 +24,10 @@
     "clearTimeout",
     "document",
     "DocumentTouch",
+    "DOMWindowConstructor",
     "Element",
     "setTimeout",
-    "window"
+    "window",
+    "Window"
   ]
 }

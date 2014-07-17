@@ -18,7 +18,7 @@ function copy(src, targ, done) {
 function init(moonpath) {
   fs.mkdir(moonpath, function (err) {
     if (err) throw err;
-    var lib = path.join(__dirname, '../moons')
+    var lib = path.join(__dirname, '../lib')
       , moons = fs.readdirSync(lib)
       , len = moons.length
       , count = 0;
