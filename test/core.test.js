@@ -88,6 +88,13 @@ describe('core', function () {
     it('returns null for an invalid property', function () {
       expect(core.prop('notrealatall')).to.be(null);
     });
+
+    it('returns a valid property', function () {
+      var height = core.prop('height')
+        , transform = core.prop('transform');
+      expect(height).to.be('height');
+      expect(transform).to.be('-webkit-transform');
+    });
   });
 
   describe('#rAF()', function () {
